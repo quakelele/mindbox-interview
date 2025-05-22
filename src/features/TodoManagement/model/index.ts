@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Filter, Todos } from 'shared/_types'
 
 export const useTodoManagement = () => {
@@ -10,7 +10,7 @@ export const useTodoManagement = () => {
       if (e.key === 'Enter' && inputValue.trim()) {
          setTodos([
             ...todos,
-            { id: Date.now(), title: inputValue.trim(), completed: false },
+            { id: Math.random(), title: inputValue.trim(), completed: false },
          ])
          setInputValue('')
       }
@@ -32,11 +32,15 @@ export const useTodoManagement = () => {
       setTodos(todos.filter(todo => !todo.completed))
    }
 
-   const filteredTodos = todos.filter(todo => {
-      if (filter === 'active') return !todo.completed
-      if (filter === 'completed') return todo.completed
-      return true
-   })
+   const filteredTodos = useMemo(
+      () =>
+         todos.filter(todo => {
+            if (filter === 'active') return !todo.completed
+            if (filter === 'completed') return todo.completed
+            return true
+         }),
+      [todos, filter]
+   )
 
    return {
       todos: filteredTodos,
