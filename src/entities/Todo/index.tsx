@@ -1,6 +1,6 @@
 import { Todos } from 'shared/_types'
 
-import $ from './styles/Todo.module.scss'
+import style from './styles/Todo.module.scss'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { Checkbox } from './ui/Checkbox'
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 export const Todo = ({ todos, onChange, removeTodo }: Props) => {
     const [parent] = useAutoAnimate()
    return (
-      <div className={$.wrapper}>
+      <div className={style.wrapper}>
          <ul ref={parent}>
             {todos.map(todo => (
                <li  onDoubleClick={() => removeTodo(todo.id)} key={todo.id}>
@@ -20,7 +20,7 @@ export const Todo = ({ todos, onChange, removeTodo }: Props) => {
                      checked={todo.completed}
                      onChange={() => onChange(todo.id)}
                   />
-                  <p className={todo.completed ? $.completed : ''}>
+                  <p className={todo.completed ? style.completed : ''}>
                      {todo.title}
                   </p>
                </li>

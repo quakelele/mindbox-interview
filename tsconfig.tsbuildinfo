@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/vite-env.d.ts","./src/app/index.tsx","./src/entities/todo/index.tsx","./src/entities/todo/ui/checkbox.tsx","./src/features/todomanagement/index.tsx","./src/features/todomanagement/model/index.ts","./src/pages/todopage/index.tsx","./src/shared/_types.ts","./src/shared/ui/button.tsx","./src/shared/ui/input.tsx"],"version":"5.8.3"}

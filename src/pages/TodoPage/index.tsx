@@ -1,9 +1,9 @@
 import { TodoManagement } from 'features/TodoManagement'
-import $ from './styles/TodoPage.module.scss'
+import style from './styles/TodoPage.module.scss'
 
 export const TodoPage = () => {
    return (
-      <div className={$.wrapper}>
+      <div className={style.wrapper}>
          <div>
             
             <TodoManagement />

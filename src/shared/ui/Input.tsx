@@ -1,4 +1,4 @@
-import $ from '../styles/Input.module.scss'
+import style from '../styles/Input.module.scss'
 
 interface InputProps {
    value: string
@@ -14,7 +14,7 @@ export const Input = ({
    placeholder,
 }: InputProps) => {
    return (
-      <div className={$.wrapper}>
+      <div className={style.wrapper}>
          <input
             value={value}
             onKeyUp={onKeyUp}

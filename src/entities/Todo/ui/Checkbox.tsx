@@ -1,4 +1,4 @@
-import $ from '../styles/Checkbox.module.scss'
+import style from '../styles/Checkbox.module.scss'
 
 interface CheckboxProps {
    checked: boolean
@@ -7,13 +7,13 @@ interface CheckboxProps {
 
 export const Checkbox = ({ checked, onChange }: CheckboxProps) => {
    return (
-      <label className={$.checkbox}>
+      <label className={style.checkbox}>
          <input
             type="checkbox"
             checked={checked}
             onChange={e => onChange(e.target.checked)}
          />
-         <span className={$.custom}></span>
+         <span className={style.custom}></span>
       </label>
    )
 }
