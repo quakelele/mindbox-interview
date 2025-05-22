@@ -1,4 +1,3 @@
-
 import { Input } from 'shared/ui/Input'
 import { useTodoManagement } from './model'
 import { Todo } from 'entities/Todo'
@@ -16,6 +15,8 @@ export const TodoManagement = () => {
       inputValue,
       setInputValue,
    } = useTodoManagement()
+
+   console.log('Component rerendered', { filteredTodos, filter });
    return (
       <div className={style.wrapper}>
          <div>
@@ -25,7 +26,11 @@ export const TodoManagement = () => {
                onChange={setInputValue}
                onKeyUp={addTodo}
             />
-            <Todo removeTodo={removeTodo} onChange={toggleTodo} todos={filteredTodos} />
+            <Todo
+               removeTodo={removeTodo}
+               onChange={toggleTodo}
+               todos={filteredTodos}
+            />
          </div>
          <div className={style.tabs}>
             <span>{filteredTodos.length} items left</span>
@@ -41,7 +46,6 @@ export const TodoManagement = () => {
                   Active
                </button>
                <button
-              
                   onClick={() => setFilter('completed')}
                   className={filter === 'completed' ? style.active : ''}>
                   Completed

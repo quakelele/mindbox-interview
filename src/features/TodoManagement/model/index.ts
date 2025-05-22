@@ -32,15 +32,11 @@ export const useTodoManagement = () => {
       setTodos(todos.filter(todo => !todo.completed))
    }
 
-   const filteredTodos = useMemo(
-      () =>
-         todos.filter(todo => {
-            if (filter === 'active') return !todo.completed
-            if (filter === 'completed') return todo.completed
-            return true
-         }),
-      [todos, filter]
-   )
+   const filteredTodos = todos.filter(todo => {
+      if (filter === 'active') return !todo.completed
+      if (filter === 'completed') return todo.completed
+      return true
+   })
 
    return {
       todos: filteredTodos,
