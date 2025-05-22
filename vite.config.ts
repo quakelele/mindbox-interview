@@ -5,11 +5,9 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
    plugins: [react(), tsconfigPaths()],
-   css: {
-      devSourcemap: true, // для удобства отладки CSS в dev и prod
-    },
-    build: {
-      sourcemap: true, // посмотреть исходники в продакшне
-    }
-
+   css: { devSourcemap: true },
+   build: {
+     sourcemap: true,
+     minify: 'esbuild', // по умолчанию, можно попробовать отключить minify для теста: minify: false,
+   },
 })
