@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import {  useState } from 'react'
 import { Filter, Todos } from 'shared/_types'
 
 export const useTodoManagement = () => {
