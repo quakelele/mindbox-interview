@@ -1,7 +1,8 @@
 import { Todos } from 'shared/_types'
-import { Checkbox } from './ui/checkbox'
+
 import $ from './styles/Todo.module.scss'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { Checkbox } from './ui/Checkbox'
 type Props = {
    onChange: (arg: number) => void
    todos: Todos[]
