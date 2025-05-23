@@ -1,18 +1,12 @@
 import style from '../styles/Input.module.scss'
 
-interface InputProps {
+type Props = {
    value: string
    onChange: (value: string) => void
    onKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => void
-   placeholder?: string
 }
 
-export const Input = ({
-   value,
-   onChange,
-   onKeyUp,
-   placeholder,
-}: InputProps) => {
+export const Input = ({ value, onChange, onKeyUp }: Props) => {
    return (
       <div className={style.wrapper}>
          <input
@@ -20,7 +14,7 @@ export const Input = ({
             onKeyUp={onKeyUp}
             onChange={e => onChange(e.target.value)}
             type="text"
-            placeholder={placeholder}
+            placeholder="What needs to be done?"
          />
       </div>
    )

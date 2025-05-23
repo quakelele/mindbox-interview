@@ -1,0 +1,14 @@
+.wrapper {
+   button {
+      padding: 3px;
+      border-radius: 5px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      color: rgb(170, 170, 170);
+   }
+
+   .active {
+      transition: all 0.3s ease;
+      border-color: rgb(209, 209, 209);
+   }
+}

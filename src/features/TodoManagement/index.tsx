@@ -1,11 +1,13 @@
+import { Todo } from 'entities/Todo'
 import { Input } from 'shared/ui/Input'
 import { useTodoManagement } from './model'
-import { Todo } from 'entities/Todo'
+import { FILTER } from 'shared/consts/filter'
 import style from './styles/TodoManagement.module.scss'
+import { Button } from 'shared/ui/Button'
 
 export const TodoManagement = () => {
    const {
-      todos: filteredTodos,
+      todos,
       addTodo,
       toggleTodo,
       removeTodo,
@@ -18,39 +20,34 @@ export const TodoManagement = () => {
 
    return (
       <div className={style.wrapper}>
-         <div>
+         <>
             <Input
-               placeholder="What needs to be done?"
                value={inputValue}
                onChange={setInputValue}
                onKeyUp={addTodo}
             />
-            <Todo
-               removeTodo={removeTodo}
-               onChange={toggleTodo}
-               todos={filteredTodos}
-            />
-         </div>
-         <div className={style.tabs}>
-            <span>{filteredTodos.length} items left</span>
-            <div>
-               <button
-                  onClick={() => setFilter('all')}
-                  className={filter === 'all' ? style.active : ''}>
-                  All
-               </button>
-               <button
-                  onClick={() => setFilter('active')}
-                  className={filter === 'active' ? style.active : ''}>
-                  Active
-               </button>
-               <button
-                  onClick={() => setFilter('completed')}
-                  className={filter === 'completed' ? style.active : ''}>
-                  Completed
-               </button>
-            </div>
-            <button onClick={clearCompleted}>Clear completed</button>
+            <Todo removeTodo={removeTodo} onChange={toggleTodo} todos={todos} />
+         </>
+         <div className={style.filters}>
+            <p>{todos.length} items left</p>
+            <>
+               <Button
+                  label="All"
+                  isActive={filter === FILTER.ALL}
+                  onClick={() => setFilter(FILTER.ALL)}
+               />
+               <Button
+                  label="Active"
+                  isActive={filter === FILTER.ACTIVE}
+                  onClick={() => setFilter(FILTER.ACTIVE)}
+               />
+               <Button
+                  label="Completed"
+                  isActive={filter === FILTER.COMPLETED}
+                  onClick={() => setFilter(FILTER.COMPLETED)}
+               />
+            </>
+            <Button label="Clear completed" onClick={clearCompleted} />
          </div>
       </div>
    )

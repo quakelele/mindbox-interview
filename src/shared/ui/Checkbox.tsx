@@ -1,11 +1,11 @@
 import style from '../styles/Checkbox.module.scss'
 
-interface CheckboxProps {
+type Props = {
    checked: boolean
    onChange: (checked: boolean) => void
 }
 
-export const Checkbox = ({ checked, onChange }: CheckboxProps) => {
+export const Checkbox = ({ checked, onChange }: Props) => {
    return (
       <label className={style.checkbox}>
          <input

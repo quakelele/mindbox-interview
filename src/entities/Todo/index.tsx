@@ -1,11 +1,11 @@
-import { Todos } from 'shared/_types'
+import { TodoTypes } from 'shared/_types'
 
 import style from './styles/Todo.module.scss'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { TodoItem } from './ui/TodoItem'
 type Props = {
    onChange: (arg: number) => void
-   todos: Todos[]
+   todos: TodoTypes[]
    removeTodo: (arg: number) => void
 }
 

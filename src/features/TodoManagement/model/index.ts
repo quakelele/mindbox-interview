@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { Filter, Todos } from 'shared/_types'
+import { FilterType, TodoTypes } from 'shared/_types'
+import { FILTER } from 'shared/consts/filter'
 
 export const useTodoManagement = () => {
-   const [todos, setTodos] = useState<Todos[]>([])
+   const [todos, setTodos] = useState<TodoTypes[]>([])
    const [inputValue, setInputValue] = useState('')
-   const [filter, setFilter] = useState<Filter>('all')
+   const [filter, setFilter] = useState<FilterType>(FILTER.ALL)
 
    const addTodo = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter' && inputValue.trim()) {
@@ -33,8 +34,8 @@ export const useTodoManagement = () => {
    }
 
    const filteredTodos = todos.filter(todo => {
-      if (filter === 'active') return !todo.completed
-      if (filter === 'completed') return todo.completed
+      if (filter === FILTER.ACTIVE) return !todo.completed
+      if (filter === FILTER.COMPLETED) return todo.completed
       return true
    })
 

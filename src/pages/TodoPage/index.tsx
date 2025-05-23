@@ -4,11 +4,7 @@ import style from './styles/TodoPage.module.scss'
 export const TodoPage = () => {
    return (
       <div className={style.wrapper}>
-         <div>
-            
-            <TodoManagement />
-         </div>
-         
+         <TodoManagement />
       </div>
    )
 }

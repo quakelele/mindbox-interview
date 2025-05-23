@@ -1,6 +1,7 @@
-export type Todos = {
+export type FilterType = 'all' | 'active' | 'completed'
+
+export type TodoTypes = {
    id: number
    completed: boolean
    title: string
 }
-export type Filter = 'all' | 'active' | 'completed'
