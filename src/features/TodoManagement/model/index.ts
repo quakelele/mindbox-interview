@@ -1,4 +1,4 @@
-import {  useState } from 'react'
+import { useState } from 'react'
 import { Filter, Todos } from 'shared/_types'
 
 export const useTodoManagement = () => {
@@ -17,19 +17,19 @@ export const useTodoManagement = () => {
    }
 
    const toggleTodo = (id: number) => {
-      setTodos(
-         todos.map(todo =>
+      setTodos(prev =>
+         prev.map(todo =>
             todo.id === id ? { ...todo, completed: !todo.completed } : todo
          )
       )
    }
 
    const removeTodo = (id: number) => {
-      setTodos(todos.filter(todo => todo.id !== id))
+      setTodos(prev => prev.filter(todo => todo.id !== id))
    }
 
    const clearCompleted = () => {
-      setTodos(todos.filter(todo => !todo.completed))
+      setTodos(prev => prev.filter(todo => !todo.completed))
    }
 
    const filteredTodos = todos.filter(todo => {
