@@ -16,7 +16,6 @@ export const TodoManagement = () => {
       setInputValue,
    } = useTodoManagement()
 
-   console.log('Component rerendered', { filteredTodos, filter });
    return (
       <div className={style.wrapper}>
          <div>
